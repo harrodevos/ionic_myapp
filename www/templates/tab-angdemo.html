@@ -1,0 +1,71 @@
+<ion-view view-title="Angular demo">
+  <ion-content class="padding">
+    <div>
+    	<h4>Compile service</h3>
+    	<ul>
+    		<li><a onclick="$('.jqall').hide();$('.jqcompile').show();">$compile service demo</a></li>
+    		<li><a onclick="$('.jqall').hide();$('.jqparse').show();">$parse service demo</a></li>
+    		<li><a onclick="$('.jqall').hide();$('.jqlocale').show();">$locale service demo</a></li>
+    		<li><a onclick="$('.jqall').hide();$('.jqtimeout').show();">$timeout service demo</a></li>
+    		<li><a onclick="$('.jqall').hide();$('.jqexception').show();">$exception service demo</a></li>
+    		<li><a onclick="$('.jqall').hide();$('.jqfilter').show();">$filter service demo</a></li>
+    		<li><a onclick="$('.jqall').hide();$('.jqcookiestore').show();">$cookieStore service demo</a></li>
+    	</ul>
+    </div>
+    <hr/>
+    <div ng-controller="AngdemoCtrl" class="jqall jqcompile" style="display:none;">
+    	<form id="CompileForm">
+			<div id="CompiledMarkup"></div>
+			<label class="item item-input">
+				<span class="input-label">name:</span>
+				<input type="text" id="name" ng-model="name" required />
+			</label>
+			<label class="item item-input">
+				<span class="input-label">markup:</span>
+				<input type="text" id="markup" ng-model="markup" required />
+			</label>
+			<button ng-disabled="CompileForm.$invalid" ng-click="doCompilation(markup)">Bite me</button>
+		</form>
+    </div>
+    <div ng-controller="AngdemoCtrl" class="jqall jqparse" style="display:none;">
+    	<form id="ParseForm">
+			<div id="ParsedContent"></div>
+			<label class="item item-input">
+				<span class="input-label">expression:</span>
+				<input type="text" id="expression" ng-model="expression" required />
+			</label>
+			<button ng-disabled="ParseForm.$invalid" ng-click="doParsing(expression)">Bite me</button>
+		</form>
+    </div>
+    <div ng-controller="AngdemoCtrl" class="jqall jqlocale" style="display:none;">
+		<div id="LocaleContent">{{myDate | date:myFormat}}</div>
+    </div>
+    <div ng-controller="AngdemoCtrl" class="jqall jqtimeout" style="display:none;">
+		<div id="TimeoutContent">Name should appear after about 3 secs after you click: {{name}}</div>
+		<button ng-click="showNameAfterTimeout()">Bite me</button>
+		<button ng-click="cancelShowing()">Cancel</button>
+    </div>
+    <div ng-controller="AngdemoCtrl" class="jqall jqexception" style="display:none;">
+		<div id="ExceptionContent">{{myException}}</div>
+		<button ng-click="throwException()">Throw exception</button>
+    </div>
+    <div ng-controller="AngdemoCtrl" class="jqall jqfilter" style="display:none;">
+    	<form id="FilterForm">
+	    	<h4>App noot mies filter</h4>
+	    	<label class="item item-input">
+					<span class="input-label">enter aap noot mies index:</span>
+					<input type="text" id="aapNootMiesValue" ng-model="aapNootMiesValue" required />
+				</label>
+			<div id="FilterContent"></div>
+			<button ng-disabled="FilterForm.$invalid" ng-click="filterIt(aapNootMiesValue)">Filter</button>
+		</form>
+    </div>
+    <div ng-controller="AngdemoCtrl" class="jqall jqcookiestore" style="display:none;">
+    	<h4>Cookie store</h4>
+		<div id="CookieStoreContent">- no cookie -</div>
+		<button ng-click="saveEventCookie()">Save event to cookie</button><br/>
+		<button ng-click="getEventCookie()">Get event from cookie</button><br/>
+		<button ng-click="removeEventCookie()">Remove event cookie</button>
+    </div>
+  </ion-content>
+</ion-view>

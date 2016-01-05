@@ -1,0 +1,32 @@
+<ion-view view-title="Angular caching">
+  <ion-content class="padding">
+    <div>
+    	<h4>Add to cache</h3>
+    </div>
+    <div>
+    	<form name="CacheForm">
+    	<label class="item item-input">
+		  <span class="input-label">Cache key</span>
+		  <input type="text" name="CacheKey" ng-model="cacheEntry.key" required>
+		</label>
+		<label class="item item-input">
+		  <span class="input-label">Cache value</span>
+		  <input type="text" name="CacheKey" ng-model="cacheEntry.value" required>
+		</label>
+		<button ng-disabled="CacheForm.$invalid" ng-click="AddToCache(CacheForm, cacheEntry)">Add to cache</button>
+		<p>{{statusMessage}}</p>
+		</form>
+    </div>
+    <hr/>
+    <div>
+    	<form name="CacheFormRead">
+    	<label class="item item-input">
+		  <span class="input-label">Cache key</span>
+		  <input type="text" name="CacheKeyRead" ng-model="cacheEntry.keyRead" required>
+		</label>
+		<button ng-disabled="CacheFormRead.$invalid" ng-click="GetFromCache(CacheFormRead, cacheEntry)">Get from cache</button>
+		<p>{{cacheValueRead}}</p>
+		</form>
+    </div>
+  </ion-content>
+</ion-view>
